@@ -1,214 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmer's E-commerce</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: #4CAF50;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #333;
-        }
-        .product {
-            border: 1px solid #ccc;
-            margin: 10px;
-            display: inline-block;
-            width: 200px; /* Fixed width for square boxes */
-            height: 250px; /* Fixed height for square boxes */
-            text-align: center;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(120, 60, 60, 0.1);
-            background: #fff;
-            vertical-align: top;
-            overflow: hidden; /* Ensures content stays within the box */
-        }
-        .product img {
-            width: 100%;
-            height: 150px; /* Fixed height for images */
-            object-fit: cover;
-        }
-        .cart {
-            margin-top: 20px;
-        }
-        .checkout {
-            margin-top: 20px;
-        }
-        #adminButton {
-            background-color: #c52121;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-        #adminDetails {
-            display: none;
-            margin-top: 20px;
-        }
-        .form-section {
-            margin-top: 20px;
-        }
-        .form-section input {
-            margin: 5px 0;
-            padding: 10px;
-            width: 101%;
-        }
-        #cartItems {
-            list-style: none;
-            padding: 0;
-        }
-        #cartItems li {
-            margin: 5px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer's E-commerce</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background: #4CAF50;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #333;
+    }
+    .product {
+      border: 1px solid #ccc;
+      margin: 10px;
+      display: inline-block;
+      width: 200px;
+      height: 250px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      vertical-align: top;
+      overflow: hidden;
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .cart, .checkout {
+      margin-top: 20px;
+    }
+    #adminButton {
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    #adminDetails {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-section {
+      margin-top: 20px;
+    }
+    .form-section input {
+      margin: 5px 0;
+      padding: 10px;
+      width: 100%;
+    }
+    #cartItems {
+      list-style: none;
+      padding: 0;
+    }
+    #cartItems li {
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
- 
+
 <header>
-    <h1>Buy Directly from Farmers</h1>
+  <h1>Buy Directly from Farmers</h1>
 </header>
-<h2 style="text-align: center;">Products</h2>
+
 <div class="container">
-    
+  <h2>Products</h2>
+  <div id="productContainer">
     <div class="product">
-        <img src="https://cdn.britannica.com/17/176517-050-6F2B774A/Pile-uncooked-rice-grains-Oryza-sativa.jpg" alt="Rice">
-        <h3>Rice - ₹40/kg</h3>
-        <button onclick="addToCart('Rice', 40)">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://www.healthifyme.com/blog/wp-content/uploads/2022/01/shutterstock_637982485-1.jpg " alt="Ground Nuts">
-        <h3>Ground Nuts - ₹80/kg</h3>
-        <button onclick="addToCart('Ground Nuts', 80)">Add to Cart</button>
+      <img src="https://cdn.britannica.com/17/176517-050-6F2B774A/Pile-uncooked-rice-grains-Oryza-sativa.jpg" alt="Rice">
+      <h3>Rice - ₹40/kg</h3>
+      <button onclick="addToCart('Rice', 40)">Add to Cart</button>
     </div>
     <div class="product">
-        <img src="https://static.toiimg.com/photo/85070686.cms" alt="Millets">
-        <h3>Millets - ₹60/kg</h3>
-        <button onclick="addToCart('Millets', 60)">Add to Cart</button>
+      <img src="https://www.healthifyme.com/blog/wp-content/uploads/2022/01/shutterstock_637982485-1.jpg " alt="Ground Nuts">
+      <h3>Ground Nuts - ₹80/kg</h3>
+      <button onclick="addToCart('Ground Nuts', 80)">Add to Cart</button>
     </div>
     <div class="product">
-        <img src="https://th.bing.com/th/id/OIP.I8CqZRhtdnexhwKIVdoW3AAAAA?rs=1&pid=ImgDetMain" alt="Flours">
-        <h3>Flours - ₹50/kg</h3>
-        <button onclick="addToCart('Flours', 50)">Add to Cart</button>
+      <img src="https://static.toiimg.com/photo/85070686.cms" alt="Millets">
+      <h3>Millets - ₹60/kg</h3>
+      <button onclick="addToCart('Millets', 60)">Add to Cart</button>
     </div>
     <div class="product">
-        <img src="https://th.bing.com/th/id/OIP.qwAEVTL03k6WtHpML4QwJgHaGh?rs=1&pid=ImgDetMain" alt="Pistachio">
-        <h3>Pistachio - ₹1200/kg</h3>
-        <button onclick="addToCart('Pistachio', 120)">Add to Cart</button>
+      <img src="https://th.bing.com/th/id/OIP.I8CqZRhtdnexhwKIVdoW3AAAAA?rs=1&pid=ImgDetMain" alt="Flours">
+      <h3>Flours - ₹50/kg</h3>
+      <button onclick="addToCart('Flours', 50)">Add to Cart</button>
     </div>
     <div class="product">
-        <img src="https://www.verywellhealth.com/thmb/1Mil8HpHxvupKyv6TuFBVPDdsb8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-179131029-6a036f45b1b34fac95326227c2a12708.jpg"alt="coconut">
-        <h3>coconut - ₹40/1N</h3>
-        <button onclick="addToCart('coconut', 40)">Add to Cart</button>
+      <img src="https://th.bing.com/th/id/OIP.qwAEVTL03k6WtHpML4QwJgHaGh?rs=1&pid=ImgDetMain" alt="Pistachio">
+      <h3>Pistachio - ₹1200/kg</h3>
+      <button onclick="addToCart('Pistachio', 120)">Add to Cart</button>
     </div>
-    <div class="cart">
-        <h2>Cart</h2>
-        <ul id="cartItems"></ul>
-        <p id="deliveryFee">Delivery Fee: ₹35</p>
-        <button class="checkout" onclick="showCheckout()">Checkout</button>
+    <div class="product">
+      <img src="https://static.vecteezy.com/system/resources/previews/027/248/060/large_2x/oranges-in-garden-free-photo.jpg" alt="Oranges">
+      <h3>Oranges - ₹100/kg</h3>
+      <button onclick="addToCart('Oranges', 100)">Add to Cart</button>
     </div>
- 
-    <div id="checkoutSection" class="form-section" style="display:none;">
-        <h2>Checkout</h2>
-        <input type="text" id="customerName" placeholder="Enter your name">
-        <input type="text" id="customerAddress" placeholder="Enter your address">
-        <input type="text" id="customerPhone" placeholder="Enter your phone number">
-        <button onclick="placeOrder()">Place Order</button>
-    </div>
+  </div>
+
+  <div class="cart">
+    <h2>Cart</h2>
+    <ul id="cartItems"></ul>
+    <p id="deliveryFee">Delivery Fee: ₹35</p>
+    <button class="checkout" onclick="showCheckout()">Checkout</button>
+  </div>
+
+  <div id="checkoutSection" class="form-section" style="display:none;">
+    <h2>Checkout</h2>
+    <input type="text" id="customerName" placeholder="Enter your name">
+    <input type="text" id="customerAddress" placeholder="Enter your address">
+    <input type="text" id="customerPhone" placeholder="Enter your phone number">
+    <button onclick="placeOrder()">Place Order</button>
+  </div>
 </div>
- 
+
 <button id="adminButton" onclick="showAdmin()">Admin</button>
- 
 <div id="adminDetails"></div>
- 
+
 <script>
-    const cart = [];
-    const orders = []; // To store customer orders
-    let orderIdCounter = 1; // To assign order IDs
- 
-    function addToCart(product, price) {
-        cart.push({ product, price });
-        displayCart();
+  const cart = [];
+  const orders = [];
+  let orderIdCounter = 1;
+
+  function addToCart(product, price) {
+    cart.push({ product, price });
+    displayCart();
+  }
+
+  function displayCart() {
+    const cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.product} - ₹${item.price}`;
+      cartItems.appendChild(li);
+    });
+  }
+
+  function showCheckout() {
+    document.getElementById('checkoutSection').style.display = 'block';
+  }
+
+  function placeOrder() {
+    const name = document.getElementById('customerName').value;
+    const address = document.getElementById('customerAddress').value;
+    const phone = document.getElementById('customerPhone').value;
+
+    if (name && address && phone) {
+      const total = cart.reduce((sum, item) => sum + item.price, 0) + 35;
+      const orderDetails = {
+        id: orderIdCounter++,
+        name,
+        address,
+        phone,
+        items: [...cart],
+        total
+      };
+      orders.push(orderDetails);
+      alert(`Thank you for your order, ${name}! Total amount: ₹${total}.`);
+      cart.length = 0;
+      displayCart();
+      document.getElementById('checkoutSection').style.display = 'none';
+    } else {
+      alert("Please fill in all details.");
     }
- 
-    function displayCart() {
-        const cartItems = document.getElementById('cartItems');
-        cartItems.innerHTML = '';
-        cart.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = `${item.product} - ₹${item.price}`;
-            cartItems.appendChild(li);
+  }
+
+  function showAdmin() {
+    const password = prompt("Enter admin password:");
+    if (password === "123") {
+      const adminDetails = document.getElementById('adminDetails');
+      adminDetails.innerHTML = '<h2>Order Details</h2>';
+
+      if (orders.length === 0) {
+        adminDetails.innerHTML += "<p>No orders yet.</p>";
+      } else {
+        orders.forEach(order => {
+          adminDetails.innerHTML += `<div>
+                        <p><strong>Order ID:</strong> ${order.id} | <strong>Name:</strong> ${order.name} | <strong>Address:</strong> ${order.address} | <strong>Phone:</strong> ${order.phone} | <strong>Total:</strong> ₹${order.total}</p>
+                        <p><strong>Items Ordered:</strong></p>
+                        <ul>`;
+          order.items.forEach(item => {
+            adminDetails.innerHTML += `<li>${item.product}: ₹${item.price}</li>`;
+          });
+          adminDetails.innerHTML += `</ul></div>`;
         });
+      }
+
+      adminDetails.innerHTML += `
+                <h2>Add Product</h2>
+                <input type="text" id="productName" placeholder="Product Name">
+                <input type="text" id="productImage" placeholder="Image URL">
+                <input type="number" id="productPrice" placeholder="Price">
+                <button onclick="addProduct()">Add Product</button>
+            `;
+
+      adminDetails.style.display = 'block';
+    } else {
+      alert("Incorrect password.");
     }
- 
-    function showCheckout() {
-        document.getElementById('checkoutSection').style.display = 'block';
+  }
+
+  function addProduct() {
+    const name = document.getElementById('productName').value;
+    const img = document.getElementById('productImage').value;
+    const price = parseInt(document.getElementById('productPrice').value);
+
+    if (name && img && price) {
+      document.getElementById('productContainer').innerHTML += `
+                <div class="product">
+                    <img src="${img}" alt="${name}">
+                    <h3>${name} - ₹${price}/kg</h3>
+                    <button onclick="addToCart('${name}', ${price})">Add to Cart</button>
+                </div>`;
+      alert("Product added successfully!");
+    } else {
+      alert("Please enter valid product details.");
     }
- 
-    function placeOrder() {
-        const name = document.getElementById('customerName').value;
-        const address = document.getElementById('customerAddress').value;
-        const phone = document.getElementById('customerPhone').value;
- 
-        if (name && address && phone) {
-            const total = cart.reduce((sum, item) => sum + item.price, 0) + 35; // Adding delivery fee
-            const orderDetails = {
-                id: orderIdCounter++,
-                name,
-                address,
-                phone,
-                items: cart.slice(), // Store a copy of the cart
-                total
-            };
-            orders.push(orderDetails); // Store the order
-            alert(`Thank you for your order, ${name}! Total amount: ₹${total}. Delivery in next 5 hours, please pay via upi-9030216880..`);
-            cart.length = 0; // Clear the cart
-            displayCart(); // Refresh cart display
-            document.getElementById('checkoutSection').style.display = 'none'; // Hide checkout section
-        } else {
-            alert("Please fill in all details.");
-        }
-    }
- 
-    function showAdmin() {
-        const password = prompt("Enter admin password:");
-        if (password === "123") {
-            const adminDetails = document.getElementById('adminDetails');
-            adminDetails.innerHTML = '<h2>Order Details</h2>';
-            orders.forEach(order => {
-                adminDetails.innerHTML += `<div>
-                    <p><strong>Order ID:</strong> ${order.id} | <strong>Name:</strong> ${order.name} | <strong>Address:</strong> ${order.address} | <strong>Phone:</strong> ${order.phone} | <strong>Total:</strong> ₹${order.total}</p>
-                    <p><strong>Items Ordered:</strong></p>
-                    <ul>`;
-                order.items.forEach(item => {
-                    adminDetails.innerHTML += `<li>${item.product}: ₹${item.price}</li>`;
-                });
-                adminDetails.innerHTML += `</ul></div>`;
-            });
-            adminDetails.style.display = 'block'; // Show order details
-        } else {
-            alert("Incorrect password.");
-        }
-    }
+  }
 </script>
- 
+
 </body>
 </html>
-<!--https://bharathongit.github.io/website-testing/-->
